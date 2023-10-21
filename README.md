@@ -1,70 +1,69 @@
-# Getting Started with Create React App
+# Show me the Coin
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+- https://rigood.github.io/showmethecoin
+- Coinpaprika API에서 제공하는 암호화폐 순위와 가격 정보를 확인할 수 있습니다.
+- 코인명으로 검색이 가능하고, 관심코인을 등록하고 모아볼 수 있습니다.
 
-## Available Scripts
+<br>
 
-In the project directory, you can run:
+|     관심코인 등록 / 모아보기     |
+| :------------------------------: |
+| <img src="readme/bookmark.gif"/> |
 
-### `npm start`
+|          코인명 검색           |
+| :----------------------------: |
+| <img src="readme/search.gif"/> |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 프로젝트 특징
 
-### `npm test`
+- 리액트를 처음 배울 당시 useState로 상태관리를 연습하기 위해 만든 프로젝트입니다.
+  - 로딩 상태 관리
+  - 중복 상태 최소화
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+<br>
 
-### `npm run build`
+- useEffect를 통해 초기 실행 시에만 API 데이터를 받아옵니다.  
+  데이터 캐싱 라이브러리를 사용하지 않았기 때문에, 실시간으로 정보가 업데이트 되지 않습니다.
+  - cf) react-query를 사용한 coin-tracker 프로젝트 -> [Coin101](https://github.com/rigood/coin101)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<br>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 폴더구조
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+📦 root
+├─ 📦 public
+│  ├─ 📂 icons
+│  └─ 📜 index.html
+└─ 📦 src
+   ├─ 📂 assets
+   │  ├─ 📂 fonts
+   │  ├─ 📂 icons
+   │  └─ 📂 images
+   ├─ 📂 components
+   │  ├─ 📜 Aside.jsx
+   │  ├─ 📜 Coin.jsx
+   │  ├─ 📜 CoinTable.jsx
+   │  └─ 📜 Loading.jsx
+   │  └─ 📜 SearchBar.jsx
+   ├─ 📂 styles
+   │  ├─ 📜 fonts.css
+   │  ├─ 📜 GlobalStyle.jsx
+   ├─ 📜 App.jsx
+   └─ 📜 index.js
+```
 
-### `npm run eject`
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 리팩토링 (2023.10.21)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- App.js에 뭉쳐있던 코드를 컴포넌트 단위로 분리
+- 삼항연산자를 사용하여 코드 단축
+- styled-components의 props를 활용한 스타일링
+- 가상 요소 ::before를 활용하여 버튼 터치영역 확장
+- 웹폰트 로딩 방식 변경(cdn 링크 -> 서버 폰트), 서브셋 폰트 사용
+- 변수명 수정 및 사용하지 않는 초기 파일 삭제
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br>
